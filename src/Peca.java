@@ -39,6 +39,7 @@ public class Peca {
      * @param destino nova casa que ira conter esta peca.
      */
     public void mover(Casa destino) {
+        System.out.println("asdasd");
         casa.removerPeca();
         destino.colocarPeca(this);
         casa = destino;
