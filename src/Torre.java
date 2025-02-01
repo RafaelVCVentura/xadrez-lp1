@@ -20,7 +20,7 @@ public class Torre extends Peca {
         }
     }
 
-    public ArrayList<Casa> movimentosValidos () {
+    private ArrayList<Casa> movimentosValidos () {
         ArrayList<Casa> movimentosValidos = new ArrayList<Casa>();
         int x = casa.getX();
         int y = casa.getY();
@@ -33,15 +33,10 @@ public class Torre extends Peca {
                 movimentosValidos.add(destino);
             }
             else {
-                if (this.getTipo() <= 5 && destino.getPeca().getTipo() >= 6) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() >= 6 && destino.getPeca().getTipo() <= 5) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
+                checaCaptura(movimentosValidos, destino);
+                
+                //Caso sejam peças do mesmo tipo, não verifica mais o restante das casas
+                if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
                     return movimentosValidos;
                 }
             }
@@ -54,15 +49,8 @@ public class Torre extends Peca {
                 movimentosValidos.add(destino);
             }
             else {
-                if (this.getTipo() <= 5 && destino.getPeca().getTipo() >= 6) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() >= 6 && destino.getPeca().getTipo() <= 5) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
+                checaCaptura(movimentosValidos, destino);
+                if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
                     return movimentosValidos;
                 }
             }
@@ -75,15 +63,8 @@ public class Torre extends Peca {
                 movimentosValidos.add(destino);
             }
             else {
-                if (this.getTipo() <= 5 && destino.getPeca().getTipo() >= 6) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() >= 6 && destino.getPeca().getTipo() <= 5) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
+                checaCaptura(movimentosValidos, destino);
+                if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
                     return movimentosValidos;
                 }
             }
@@ -95,15 +76,8 @@ public class Torre extends Peca {
                 movimentosValidos.add(destino);
             }
             else {
-                if (this.getTipo() <= 5 && destino.getPeca().getTipo() >= 6) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() >= 6 && destino.getPeca().getTipo() <= 5) {
-                    movimentosValidos.add(destino);
-                    return movimentosValidos;
-                }
-                else if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
+                checaCaptura(movimentosValidos, destino);
+                if (this.getTipo() <= 5 && destino.getPeca().getTipo() <= 5 || this.getTipo() >= 6 && destino.getPeca().getTipo() >= 6) {
                     return movimentosValidos;
                 }
             }
@@ -111,5 +85,15 @@ public class Torre extends Peca {
         
         return movimentosValidos;
     }
+
+    private void checaCaptura (ArrayList<Casa> movimentosValidos, Casa destino) {
+        if (this.getTipo() <= 5 && destino.getPeca().getTipo() >= 6) {
+            movimentosValidos.add(destino);
+        }
+        else if (this.getTipo() >= 6 && destino.getPeca().getTipo() <= 5) {
+            movimentosValidos.add(destino);
+        }
+    }
+
 }
     
