@@ -22,7 +22,7 @@ public class Jogo {
         Casa casa1 = tabuleiro.getCasa(1, 4);
         
         Casa casa3 = tabuleiro.getCasa(5, 4);
-        Torre torreBranca = new Torre(casa3, Peca.TORRE_BRANCA, tabuleiro);
+        Bispo bispoBranca = new Bispo(casa3, Peca.BISPO_BRANCA, tabuleiro);
 
         Casa casa2 = tabuleiro.getCasa(1, 5);
         Peca peca2 = new Peca(casa2, Peca.RAINHA_PRETO);
