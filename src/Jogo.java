@@ -19,8 +19,10 @@ public class Jogo {
      * Utilizado na inicializa�ao do jogo.
      */
     private void criarPecas() {
-        Casa casa1 = tabuleiro.getCasa(0, 0);
-        Peca peca1 = new Peca(casa1, Peca.PEAO_BRANCA);
+        Casa casa1 = tabuleiro.getCasa(1, 4);
+        
+        Casa casa3 = tabuleiro.getCasa(5, 4);
+        Torre torreBranca = new Torre(casa3, Peca.TORRE_BRANCA, tabuleiro);
 
         Casa casa2 = tabuleiro.getCasa(1, 5);
         Peca peca2 = new Peca(casa2, Peca.RAINHA_PRETO);

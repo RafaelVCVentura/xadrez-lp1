@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Representa uma Pe�a do jogo.
@@ -42,6 +43,18 @@ public class Peca {
         casa.removerPeca();
         destino.colocarPeca(this);
         casa = destino;
+    }
+
+    protected boolean validaMovimentoDeCaptura (ArrayList<Casa> movimentosValidos, Casa destino) {
+        if (this.getTipo() <= 5 && destino.getPeca().getTipo() >= 6) {
+            movimentosValidos.add(destino);
+            return true;
+        }
+        else if (this.getTipo() >= 6 && destino.getPeca().getTipo() <= 5) {
+            movimentosValidos.add(destino);
+            return true;
+        }
+        return false;
     }
 
     /**
