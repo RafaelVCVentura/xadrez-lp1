@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
 public class Torre extends Peca {
 
     private Tabuleiro tabuleiro;
